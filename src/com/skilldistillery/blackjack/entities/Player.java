@@ -2,24 +2,23 @@ package com.skilldistillery.blackjack.entities;
 
 public class Player {
 
-	private Hand hand;
-//Player has-a blackjackHand
-//	private BlackjackHand playerBlackjackHand;
+	protected BlackjackHand playerBlackjackHand = new BlackjackHand();
 	
-	public Player(BlackjackHand blackjackhand) {
+	public Player(BlackjackHand playerBlackjackHand) {
 		super();
-//		BlackjackHand playerBlackjackHand;
-//		this.playerBlackjackHand = blackjackhand;
-		
-//		playerBlackjackHand = new BlackjackHand();
+		this.playerBlackjackHand = playerBlackjackHand;
 	}
 	public Player() {
 	
 	}
+	public void AddCardToPlayerHands(Card addCard) {
+		playerBlackjackHand.addCard(addCard);
+	}
 	@Override
 	public String toString() {
-		return "Player [blackjackhand=" + hand + "]";
+		return "Player [playerBlackjackHand=" + playerBlackjackHand + "]";
 	}
+	
 	
 }
 
@@ -29,9 +28,6 @@ public class Player {
 	//If hand loses, the Bet is placed in the dealerChipStack. If won, the chipStack is increased by amount won. 
 	//determine after a working game!
 	
-	//private splitHand() {
-		//or would this be a subroutine of hand? ie when have two Aces or two 8s?
-	//System.out.println(Dealer: "You have two Aces? Would you like to split?);
-	//System.out.println(Dealer: "You have two 8s? Would you like to split?);
+
 	
 
