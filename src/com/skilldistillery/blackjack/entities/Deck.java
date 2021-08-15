@@ -29,6 +29,12 @@ public class Deck {
 	public void shuffle() {
 		Collections.shuffle(cards);
 	}
+	
+	public void reshuffle(List<Card> usedCards) {
+		List<Card> deck = usedCards;
+		deck.addAll(usedCards);
+		shuffle();
+	}
 
 	public Card dealCard() {
 		return cards.remove(0);

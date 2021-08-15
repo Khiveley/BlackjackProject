@@ -8,6 +8,14 @@ public class Player {
 		this.playerBlackjackHand = new BlackjackHand();
 	}
 	
+	public BlackjackHand getPlayerBlackjackHand() {
+		return playerBlackjackHand;
+	}
+
+	public void setPlayerBlackjackHand(BlackjackHand playerBlackjackHand) {
+		this.playerBlackjackHand = playerBlackjackHand;
+	}
+
 	public void AddCardToPlayerHands(Card addCard) {
 		playerBlackjackHand.addCard(addCard);
 	}

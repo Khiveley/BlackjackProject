@@ -6,8 +6,7 @@ import com.skilldistillery.blackjack.entities.Player;
 
 public class BlackjackApp {
 	Player tablePlayer = new Player();
-	Dealer tableDealer = new Dealer();
-	BlackjackHand tableHand = new BlackjackHand();
+	Dealer tableDealer = new Dealer(tablePlayer);
 
 	public static void main(String[] args) {
 
@@ -17,9 +16,10 @@ public class BlackjackApp {
 	}
 
 	public void run() {
+		tableDealer.getNewDeck();
 		tableDealer.topCardDeal();
 		tableDealer.secondCardDeal();
-		tableHand.isBlackjack();
+	
 		
 		// I need a Dealer - hand and deck
 		// I need a Player - hand only

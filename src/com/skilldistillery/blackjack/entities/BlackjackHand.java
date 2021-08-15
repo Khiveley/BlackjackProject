@@ -34,7 +34,7 @@ public class BlackjackHand extends Hand {
 		}
 		return false;
 	}
-	// private splitHand() {
+	//public splitHand() {
 	// or would this be a subroutine of hand? ie when have two Aces or two 8s?
 //System.out.println(Dealer: "You have two Aces? Would you like to split?);
 //System.out.println(Dealer: "You have two 8s? Would you like to split?);
