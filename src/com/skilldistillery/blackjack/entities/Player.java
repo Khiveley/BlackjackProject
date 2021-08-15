@@ -1,5 +1,7 @@
 package com.skilldistillery.blackjack.entities;
 
+import java.util.Scanner;
+
 public class Player {
 
 	protected BlackjackHand playerBlackjackHand;
@@ -7,6 +9,7 @@ public class Player {
 	public Player() {
 		this.playerBlackjackHand = new BlackjackHand();
 	}
+
 	
 	public BlackjackHand getPlayerBlackjackHand() {
 		return playerBlackjackHand;

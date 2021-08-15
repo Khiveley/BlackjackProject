@@ -15,8 +15,7 @@ public abstract class Hand {
 		cards.add(card);
 	}
 
-	public void clearHand() {
-		cards = new ArrayList<Card>();
+	{
 	}
 
 	public abstract int getHandValue();

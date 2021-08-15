@@ -19,9 +19,11 @@ public class BlackjackApp {
 		tableDealer.getNewDeck();
 		tableDealer.topCardDeal();
 		tableDealer.secondCardDeal();
-//		tablePlayer.hitorstay
+		tableDealer.blackjackCheck();
+		tableDealer.playerHitOrStay();
 		tableDealer.dealerHitOrStay();
-		
+		tableDealer.declareWinner();
+		//reshuffle();
 	
 //	System.out.println("\u2665 This should be a Hearts suit symbol.");
 //    System.out.println("\u2666 This should be a Diamonds suit symbol.");
