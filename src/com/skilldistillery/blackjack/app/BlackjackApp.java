@@ -1,6 +1,6 @@
 package com.skilldistillery.blackjack.app;
 
-//import com.skilldistillery.blackjack.entities.BlackjackHand;
+import com.skilldistillery.blackjack.entities.BlackjackHand;
 import com.skilldistillery.blackjack.entities.Dealer;
 import com.skilldistillery.blackjack.entities.Player;
 
@@ -25,7 +25,8 @@ public class BlackjackApp {
 		tableDealer.playerBustCheck();
 		tableDealer.dealerHitOrStay();
 		tableDealer.declareWinner();
-	}
+		}
+
 
 	public void goodbye() {
 		System.out.println("---------------------------------------------");

@@ -9,7 +9,7 @@ public class Dealer extends Player {
 	private Deck gameDeck;
 	private BlackjackHand dealerHand;
 	private BlackjackHand player1Hand;
-	private List<Card> usedCards;
+//	private List<Card> usedCards;
 
 	public Dealer(Player player1) {
 		this.player1 = player1;
@@ -66,7 +66,7 @@ public class Dealer extends Player {
 				keyboard.close();
 				playerContinue = false;
 				break;
-				
+
 			}
 
 		}
@@ -77,6 +77,9 @@ public class Dealer extends Player {
 			System.out.println("The dealer wins!");
 			System.out.println("---------------------------------------------");
 		}
+		if (dealerHand.isBust()) {
+			System.out.println("You win.");
+		}
 	}
 
 	public void dealerHitOrStay() {
@@ -84,7 +87,7 @@ public class Dealer extends Player {
 		for (Card card : dealerHand.getHand())
 			System.out.println(card);
 		while (keepGoing) {
-			if (dealerHand.getHandValue() < 17) {
+			if (player1Hand.getHandValue() != 21 && dealerHand.getHandValue() < 17) {
 				Card card = gameDeck.dealCard();
 				dealerHand.addCard(card);
 				System.out.println("The Dealers has to hit. He dealt a " + card);
@@ -95,7 +98,6 @@ public class Dealer extends Player {
 				keepGoing = false;
 			} else {
 				keepGoing = false;
-//			System.out.println("The Dealer's total is :" + dealerHand.getHandValue());
 				System.out.println("The Dealer stays.");
 			}
 		}
