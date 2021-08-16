@@ -47,35 +47,44 @@ public class Dealer extends Player {
 	}
 
 	public void blackjackCheck() {
-			if (dealerHand.getHandValue() == 21 && player1Hand.getHandValue() < 21) {
-				System.out.println("The dealer wins.");
-
-			}
+		if (dealerHand.getHandValue() == 21 && player1Hand.getHandValue() < 21) {
+			System.out.println("The dealer has a Blackjack!  The dealer wins.");
+		} else if (player1Hand.getHandValue() == 21 && dealerHand.getHandValue() < 21) {
+			System.out.println("You have a Blackjack! You win!");
+		}
 	}
-public void playerHitOrStay() {
-		
-		boolean playerContinue = true; 
-			Scanner keyboard = new Scanner(System.in);
-			while(playerContinue && player1Hand.getHandValue() < 21) {
-					System.out.println("Would you like to hit ? Enter Yes or No.");
-					String playersChoice = keyboard.nextLine();
-					if (playersChoice.equalsIgnoreCase("Yes")) {
-						Card card = gameDeck.dealCard();
-						player1Hand.addCard(card);
-					System.out.println("The dealer has dealt you a: " + card);
-					System.out.println("Your total is: " + player1Hand.getHandValue());
-						playerContinue = true;
-					} else if (playerBlackjackHand.isBust()) {
-						System.out.println("You bust.  The dealer wins!");
-						playerContinue = false;
-					} else {
-						keyboard.close();
-						playerContinue = false;
-						
-					}
 
-				}
+	public void playerHitOrStay() {
+
+		boolean playerContinue = true;
+		Scanner keyboard = new Scanner(System.in);
+		while (playerContinue && player1Hand.getHandValue() < 21) {
+			System.out.println("Would you like to hit ? Enter Yes or No.");
+			String playersChoice = keyboard.nextLine();
+			if (playersChoice.equalsIgnoreCase("Yes")) {
+				Card card = gameDeck.dealCard();
+				player1Hand.addCard(card);
+				System.out.println("The dealer has dealt you a: " + card);
+				System.out.println("Your total is: " + player1Hand.getHandValue());
+				playerContinue = true;
+//					} else if (player1Hand.isBust()) {
+//						System.out.println("You bust.  The dealer wins!");
+//						playerContinue = false;
+			} else {
+				keyboard.close();
+				playerContinue = false;
+				System.out.println("---------------------------------------------");
 			}
+
+		}
+	}
+
+	public void playerBustCheck() {
+		if (player1Hand.isBust()) {
+			System.out.println("You bust.  The dealer wins!");
+			System.out.println("---------------------------------------------");
+		}
+	}
 
 	public void dealerHitOrStay() {
 		boolean keepGoing = true;
@@ -98,17 +107,20 @@ public void playerHitOrStay() {
 			}
 		}
 	}
-public void declareWinner() {
-	int playerValue = player1Hand.getHandValue();
-	int dealerValue = dealerHand.getHandValue();
-	if (playerValue > dealerValue && playerValue < 22 && playerValue != dealerValue) {
-		System.out.println("You win!");
+
+	public void declareWinner() {
+		int playerValue = player1Hand.getHandValue();
+		int dealerValue = dealerHand.getHandValue();
+		if (playerValue > dealerValue && playerValue < 22 && playerValue != dealerValue) {
+			System.out.println("You win!");
+		} else if (dealerValue > playerValue && dealerValue < 22 && dealerValue != playerValue) {
+			System.out.println("Dealer win!");
+			System.out.println("Thanks for playing Blackjack.");
+		} else if (dealerValue == playerValue) {
+			System.out.println("It's a push.  Neither of you wins.");
+		}
 	}
-	else if (dealerValue > playerValue && dealerValue < 22 && dealerValue != playerValue) {
-		System.out.println("Dealer win!");
-		System.out.println("Thanks for playing Blackjack.");
-	}
-}
+
 	@Override
 	public String toString() {
 		return ("Dealer has" + dealerHand.getHand());

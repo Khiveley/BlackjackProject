@@ -21,6 +21,7 @@ public class BlackjackApp {
 		tableDealer.secondCardDeal();
 		tableDealer.blackjackCheck();
 		tableDealer.playerHitOrStay();
+		tableDealer.playerBustCheck();
 		tableDealer.dealerHitOrStay();
 		tableDealer.declareWinner();
 		//reshuffle();
