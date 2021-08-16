@@ -5,11 +5,6 @@ import java.util.List;
 
 public class Dealer extends Player {
 
-//ask player to hit or stay
-//compare values of dealer cards against player cards
-//reshuffle
-
-//private Dealer dealer1;
 	private Player player1;
 	private Deck gameDeck;
 	private BlackjackHand dealerHand;
@@ -17,7 +12,6 @@ public class Dealer extends Player {
 	private List<Card> usedCards;
 
 	public Dealer(Player player1) {
-//	this.dealer1 = new Dealer();
 		this.player1 = player1;
 		this.player1Hand = player1.getPlayerBlackjackHand();
 		this.gameDeck = new Deck();
@@ -58,7 +52,7 @@ public class Dealer extends Player {
 
 		boolean playerContinue = true;
 		Scanner keyboard = new Scanner(System.in);
-		while (playerContinue && player1Hand.getHandValue() < 21) {
+		while (dealerHand.getHandValue() != 21 && player1Hand.getHandValue() < 21) {
 			System.out.println("Would you like to hit ? Enter Yes or No.");
 			String playersChoice = keyboard.nextLine();
 			if (playersChoice.equalsIgnoreCase("Yes")) {
@@ -66,14 +60,13 @@ public class Dealer extends Player {
 				player1Hand.addCard(card);
 				System.out.println("The dealer has dealt you a: " + card);
 				System.out.println("Your total is: " + player1Hand.getHandValue());
+				System.out.println("---------------------------------------------");
 				playerContinue = true;
-//					} else if (player1Hand.isBust()) {
-//						System.out.println("You bust.  The dealer wins!");
-//						playerContinue = false;
 			} else {
 				keyboard.close();
 				playerContinue = false;
-				System.out.println("---------------------------------------------");
+				break;
+				
 			}
 
 		}
@@ -81,7 +74,7 @@ public class Dealer extends Player {
 
 	public void playerBustCheck() {
 		if (player1Hand.isBust()) {
-			System.out.println("You bust.  The dealer wins!");
+			System.out.println("The dealer wins!");
 			System.out.println("---------------------------------------------");
 		}
 	}
@@ -98,11 +91,11 @@ public class Dealer extends Player {
 				System.out.println("The Dealer's total is :" + dealerHand.getHandValue());
 			} else if (dealerHand.isBust()) {
 				System.out.println("The Dealer's total is :" + dealerHand.getHandValue());
-				System.out.println("The dealer busts!  You win!");
+				System.out.println("You win!");
 				keepGoing = false;
 			} else {
 				keepGoing = false;
-				System.out.println("The Dealer's total is :" + dealerHand.getHandValue());
+//			System.out.println("The Dealer's total is :" + dealerHand.getHandValue());
 				System.out.println("The Dealer stays.");
 			}
 		}
@@ -114,8 +107,7 @@ public class Dealer extends Player {
 		if (playerValue > dealerValue && playerValue < 22 && playerValue != dealerValue) {
 			System.out.println("You win!");
 		} else if (dealerValue > playerValue && dealerValue < 22 && dealerValue != playerValue) {
-			System.out.println("Dealer win!");
-			System.out.println("Thanks for playing Blackjack.");
+			System.out.println("Dealer wins!");
 		} else if (dealerValue == playerValue) {
 			System.out.println("It's a push.  Neither of you wins.");
 		}

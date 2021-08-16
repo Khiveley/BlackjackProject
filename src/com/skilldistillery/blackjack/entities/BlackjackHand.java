@@ -29,13 +29,10 @@ public class BlackjackHand extends Hand {
 
 	public boolean isBust() {
 		if (getHandValue() > 21) {
-			System.out.println("That's a bust.");
+			System.out.println("That's a bust." );
 			return true;
 		}
 		return false;
 	}
-	//public splitHand() {
-	// or would this be a subroutine of hand? ie when have two Aces or two 8s?
-//System.out.println(Dealer: "You have two Aces? Would you like to split?);
-//System.out.println(Dealer: "You have two 8s? Would you like to split?);
+	
 }

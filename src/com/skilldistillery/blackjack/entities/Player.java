@@ -9,6 +9,8 @@ public class Player {
 	public Player() {
 		this.playerBlackjackHand = new BlackjackHand();
 	}
+	
+	
 
 	
 	public BlackjackHand getPlayerBlackjackHand() {
